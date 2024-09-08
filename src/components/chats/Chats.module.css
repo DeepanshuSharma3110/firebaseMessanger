@@ -1,0 +1,82 @@
+Main chat container with flex layout
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full screen height */
+    justify-content: space-between;
+    position: relative;
+ 
+    
+}
+
+/* Profile section at the top */
+.profileContainer {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.userImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+h4 {
+    margin: 0;
+}
+
+/* Message container with scrolling */
+.messageContainer {
+    flex-grow: 1;
+    overflow-y: auto; /* Allows vertical scrolling */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* Removed 'overflow: scroll;' */
+}
+/* Message bubble styling */
+
+/* Sender (right side) message styling */
+.sender {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end; /* Aligns to the right side */
+    text-align: right;
+    margin-left: auto;
+
+    max-width: 60%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+
+/* Receiver (left side) message styling */
+.receiver {
+    background-color: #f1f1f1;
+    color: black;
+    align-self: flex-start; /* Aligns to the left side */
+    text-align: left;
+    margin-right: auto;
+
+    max-width: 60%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+
+/* Input fixed at the bottom of the screen */
+.inputContainer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}

@@ -24,8 +24,7 @@ const ProfilePic = () => {
     if (image) {
         const data =  {uid:website.sender.senderId, file:image}
         const response = await dispatch(updateProfilePic(data))
-        if(response.meta.
-            requestStatus){
+        if(response.meta.requestStatus){
             const url = response.payload;
              dispatch(setSenderImage(url))
         }

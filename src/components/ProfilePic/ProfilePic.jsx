@@ -39,7 +39,7 @@ const ProfilePic = () => {
       <form className={style.uploadForm} onSubmit={handleSubmit}>
         <div className={style.previewContainer}>
           {preview ? (
-            <img src={preview} alt="Profile Picture Preview" className={style.profilePicPreview} />
+            <img src={preview} alt="ProfilePreview" className={style.profilePicPreview} />
           ) : (
             <p>No image selected</p>
           )}

@@ -26,7 +26,7 @@ const Register = () => {
       }  
     }
     check();
-  },[])
+  })
 
 
   const handleChange = (e) => {

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Nav = () => {
     const dispatch = useDispatch();
     const [displayName, setDisplayName] = useState();
-    const [, setUidCookies,removeCookie] = useCookies(['uid']);
+    const [, ,removeCookie] = useCookies(['uid']);
     const [tokenCookies, setTokenCookies] = useCookies(['token']);
     const windows  = useSelector((state)=>state.website);
     const navigate = useNavigate()  

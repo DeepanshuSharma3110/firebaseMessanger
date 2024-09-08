@@ -5,36 +5,37 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/reducers/userReducer';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+
 const Nav = () => {
     const dispatch = useDispatch();
-    const [displayName, setDisplayName] = useState();
-    const windows  = useSelector((state)=>state.website);
-    const navigate = useNavigate()  
+    const [displayName, setDisplayName] = useState('');
+    const [, , removeCookie] = useCookies(['uid', 'token']);
+    const windows  = useSelector((state) => state.website);
+    const navigate = useNavigate();
 
-    useEffect(()=>{
-        setDisplayName(windows.sender.senderName)
-    },[])
+    useEffect(() => {
+        setDisplayName(windows.sender.senderName);
+    }, [windows.sender.senderName]);
 
-    const handleLogout  = async(e)=>{
+    const handleLogout = async (e) => {
         e.preventDefault();
-        const response = await dispatch(logout());
+        await dispatch(logout());
         removeCookie('uid');
         removeCookie('token');
         navigate('/login');
     }
 
- 
-  return (
-    <div className={style.bar}>
-        <div className={style.logoPart}>
-        <img className={style.logo} src={logo} />
+    return (
+        <div className={style.bar}>
+            <div className={style.logoPart}>
+                <img className={style.logo} src={logo} alt="Logo" />
+            </div>
+            <div className={style.userInfo}>
+                <h3>{displayName}</h3>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
         </div>
-        <div className={style.userInfo}>
-            <h3>{displayName}</h3>
-            <button onClick={handleLogout}>Logout</button>
-        </div>
-    </div>
-  )
+    )
 }
 
-export default Nav
+export default Nav;

@@ -1,4 +1,3 @@
-import { database } from "./firebase";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat from "./pages/chat/Chat";
 import Login from "./pages/login/Login";

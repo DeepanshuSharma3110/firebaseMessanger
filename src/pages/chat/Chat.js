@@ -48,12 +48,11 @@ const Chat = () => {
       }
     };
     check();
-  }, [cookies, navigate, dispatch]); 
+  }, [cookies, navigate, dispatch, isProfilePic, website.sender.senderPhotoURL]); 
 
  useEffect(()=>{
-  console.log('website',website);
   setIsProfilePic(website.sender.senderPhotoURL)
-})
+},[website])
 
   return (
    <>

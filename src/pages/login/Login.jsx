@@ -10,8 +10,8 @@ import { useCookies } from 'react-cookie';
 const Login = () => {
   const [cookies] = useCookies(['uid', 'token']);
   const dispatch = useDispatch();
-  const [uidCookies, setUidCookies] = useCookies(['uid']);
-  const [tokenCookies, setTokenCookies] = useCookies(['token']);
+  const [, setUidCookies] = useCookies(['uid']);
+  const [, setTokenCookies] = useCookies(['token']);
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -28,7 +28,7 @@ const Login = () => {
       }  
     }
     check();
-  },[])
+  })
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -39,7 +39,7 @@ const Login = () => {
    const result = await dispatch(loginUser(user));
    console.log(result.meta.requestStatus);
    
-    if(result.meta.requestStatus=='fulfilled'){
+    if(result.meta.requestStatus==='fulfilled'){
       setUidCookies('uid', result.payload.uid);
       setTokenCookies('token',result.payload.accessToken)
       navigate('/');
